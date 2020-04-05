@@ -4,6 +4,18 @@
   align-items: center;
 
   .lineChart {
-    width: 70%;
+    width: 90%;
+    height: 500px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .chart {
+    display: flex;
+    flex-direction: row;
+
+    .lineChart {
+      width: 70%;
+    }
   }
 }

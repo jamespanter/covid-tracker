@@ -3,11 +3,11 @@ import styles from "./Chart.module.scss";
 import { Line, Bar } from "react-chartjs-2";
 
 const Chart = (props) => {
-  const { loading } = props;
+  const { loading, country } = props;
   const [data, setData] = useState(null);
 
-  const fetchData = async () => {
-    fetch("https://covid19.mathdro.id/api/daily")
+  const fetchData = async (fetchURL) => {
+    fetch(fetchURL)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -16,7 +16,7 @@ const Chart = (props) => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData("https://covid19.mathdro.id/api/daily");
   }, []);
 
   return data ? (
@@ -51,12 +51,3 @@ const Chart = (props) => {
 };
 
 export default Chart;
-{
-  /* <Line
-data={{
-  labels: data.map((day) => day.reportDate),
-
-  datasets: [data.map((day) => day.confirmed.total)],
-}}
-/> */
-}

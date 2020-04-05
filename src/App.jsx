@@ -7,6 +7,7 @@ import Dropdown from "./components/Dropdown";
 
 const App = () => {
   const [data, setData] = useState(null);
+  const [country, setCountry] = useState(null);
 
   const fetchData = async () => {
     fetch("https://covid19.mathdro.id/api")
@@ -35,8 +36,8 @@ const App = () => {
       <h1>COVID-19</h1>
       <p>Last update : {data.lastUpdate}</p>
       <Cards data={data} />
-      <Dropdown data={data} />
-      <Chart loading={loading} />
+      <Dropdown loading={loading} setCountry={setCountry} />
+      <Chart loading={loading} country={country} />
     </div>
   ) : (
     loading
