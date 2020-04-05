@@ -3,7 +3,7 @@ import styles from "./Chart.module.scss";
 import { Line, Bar } from "react-chartjs-2";
 
 const Chart = (props) => {
-  const { loading, country, loadingJSX, toggleLoading } = props;
+  const { loading, country, loadingJSX } = props;
   const [data, setData] = useState(null);
 
   const fetchData = async (url) => {

@@ -15,7 +15,7 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        setTimeout(() => toggleLoading(false), 1000);
+        setTimeout(() => toggleLoading(false), 500);
       })
       .catch((error) => console.log(error));
   };
@@ -42,12 +42,7 @@ const App = () => {
       <p>Last update : {data.lastUpdate}</p>
       <Cards data={data} />
       <Dropdown loading={loading} setCountry={setCountry} />
-      <Chart
-        loading={loading}
-        country={country}
-        loadingJSX={loadingJSX}
-        toggleLoading={toggleLoading}
-      />
+      <Chart loading={loading} country={country} loadingJSX={loadingJSX} />
     </div>
   ) : (
     loadingJSX()
