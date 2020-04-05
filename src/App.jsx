@@ -18,9 +18,11 @@ const App = () => {
   };
 
   const loading = (
-    <div className={styles.loadingBox}>
-      <h3 className="text-center">Loading...please wait...</h3>
-      <div className={styles.loader}></div>
+    <div className={styles.loginContainer}>
+      <div className={styles.loadingBox}>
+        <h3 className="text-center">Loading...please wait...</h3>
+        <div className={styles.loader}></div>
+      </div>
     </div>
   );
 
@@ -30,14 +32,14 @@ const App = () => {
 
   return data ? (
     <div className={styles.app}>
-      <h1>COVID-19 TRACKER</h1>
-      <p>Last update : {data ? data.lastUpdate : null}</p>
+      <h1>COVID-19</h1>
+      <p>Last update : {data.lastUpdate}</p>
       <Cards data={data} />
       <Dropdown data={data} />
-      <Chart data={data} />
+      <Chart loading={loading} />
     </div>
   ) : (
-    <div className={styles.loginContainer}>{loading}</div>
+    loading
   );
 };
 
