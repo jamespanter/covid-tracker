@@ -8,17 +8,19 @@ import Dropdown from "./components/Dropdown";
 const App = () => {
   const [data, setData] = useState(null);
   const [country, setCountry] = useState("All");
+  const [loading, toggleLoading] = useState(false);
 
   const fetchData = async () => {
     fetch("https://covid19.mathdro.id/api")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
+        setTimeout(() => toggleLoading(false), 1000);
       })
       .catch((error) => console.log(error));
   };
 
-  const loading = (
+  const loadingJSX = () => (
     <div className={styles.loginContainer}>
       <div className={styles.loadingBox}>
         <h3 className="text-center">Loading...please wait...</h3>
@@ -28,19 +30,22 @@ const App = () => {
   );
 
   useEffect(() => {
+    toggleLoading(true);
     fetchData();
   }, []);
 
-  return data ? (
+  return loading ? (
+    loadingJSX()
+  ) : data ? (
     <div className={styles.app}>
       <h1>COVID-19</h1>
       <p>Last update : {data.lastUpdate}</p>
       <Cards data={data} />
       <Dropdown loading={loading} setCountry={setCountry} />
-      <Chart loading={loading} country={country} />
+      <Chart loading={loading} country={country} loadingJSX={loadingJSX} />
     </div>
   ) : (
-    loading
+    loadingJSX()
   );
 };
 
