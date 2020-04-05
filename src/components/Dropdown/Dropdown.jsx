@@ -25,16 +25,16 @@ const Dropdown = (props) => {
   }, []);
 
   return data ? (
-    <>
+    <div className={styles.dropdown}>
       <select
         type="text"
         onChange={(e) => {
           setCountry(e.target.value);
         }}
       >
-        {getDropDownOptions()}
+        <option value="All">All</option>;{getDropDownOptions()}
       </select>
-    </>
+    </div>
   ) : (
     loading
   );

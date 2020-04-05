@@ -7,7 +7,7 @@ import Dropdown from "./components/Dropdown";
 
 const App = () => {
   const [data, setData] = useState(null);
-  const [country, setCountry] = useState(null);
+  const [country, setCountry] = useState("All");
 
   const fetchData = async () => {
     fetch("https://covid19.mathdro.id/api")
