@@ -7,6 +7,11 @@
     width: 90%;
     height: 500px;
   }
+
+  .barChart {
+    width: 90%;
+    height: 500px;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -15,6 +20,10 @@
     flex-direction: row;
 
     .lineChart {
+      width: 70%;
+    }
+
+    .barChart {
       width: 70%;
     }
   }

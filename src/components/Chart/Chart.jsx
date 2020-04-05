@@ -3,7 +3,7 @@ import styles from "./Chart.module.scss";
 import { Line, Bar } from "react-chartjs-2";
 
 const Chart = (props) => {
-  const { loading, country, loadingJSX } = props;
+  const { loading, country, loadingJSX, toggleLoading } = props;
   const [data, setData] = useState(null);
 
   const fetchData = async (url) => {
@@ -11,7 +11,6 @@ const Chart = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   };
@@ -50,30 +49,32 @@ const Chart = (props) => {
     </div>
   ) : data && data.confirmed ? (
     <div className={styles.chart}>
-      <Bar
-        options={{
-          legend: { display: false },
-          title: { display: true, text: `Current state in ${country}` },
-        }}
-        data={{
-          labels: ["Cases", "Recovered", "Deaths"],
-          datasets: [
-            {
-              label: "People",
-              backgroundColor: [
-                "rgb(97, 188, 224)",
-                "rgb(112, 216, 112)",
-                "rgb(238, 117, 117",
-              ],
-              data: [
-                data.confirmed.value,
-                data.recovered.value,
-                data.deaths.value,
-              ],
-            },
-          ],
-        }}
-      />
+      <div className={styles.barChart}>
+        <Bar
+          options={{
+            legend: { display: false },
+            title: { display: true, text: `Current state in ${country}` },
+          }}
+          data={{
+            labels: ["Cases", "Recovered", "Deaths"],
+            datasets: [
+              {
+                label: "People",
+                backgroundColor: [
+                  "rgb(97, 188, 224)",
+                  "rgb(112, 216, 112)",
+                  "rgb(238, 117, 117",
+                ],
+                data: [
+                  data.confirmed.value,
+                  data.recovered.value,
+                  data.deaths.value,
+                ],
+              },
+            ],
+          }}
+        />
+      </div>
     </div>
   ) : (
     loading
