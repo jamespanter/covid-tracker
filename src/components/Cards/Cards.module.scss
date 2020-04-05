@@ -1,0 +1,21 @@
+.cards {
+  display: flex;
+  justify-content: center;
+
+  div {
+    border: solid 1px black;
+    width: 30%;
+
+    &.cases {
+      background-color: rgb(97, 188, 224);
+    }
+
+    &.recovered {
+      background-color: rgb(112, 216, 112);
+    }
+
+    &.deaths {
+      background-color: rgb(231, 101, 101);
+    }
+  }
+}
