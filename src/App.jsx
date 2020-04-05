@@ -17,18 +17,27 @@ const App = () => {
       .catch((error) => console.log(error));
   };
 
+  const loading = (
+    <div className={styles.loadingBox}>
+      <h3 className="text-center">Loading...please wait...</h3>
+      <div className={styles.loader}></div>
+    </div>
+  );
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  return (
+  return data ? (
     <div className={styles.app}>
       <h1>COVID-19 TRACKER</h1>
       <p>Last update : {data ? data.lastUpdate : null}</p>
       <Cards data={data} />
-      <Chart data={data} />
       <Dropdown data={data} />
+      <Chart data={data} />
     </div>
+  ) : (
+    <div className={styles.loginContainer}>{loading}</div>
   );
 };
 
