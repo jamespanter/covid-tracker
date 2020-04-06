@@ -63,7 +63,7 @@ const Chart = (props) => {
                 backgroundColor: [
                   "rgb(97, 188, 224)",
                   "rgb(112, 216, 112)",
-                  "rgb(238, 117, 117",
+                  "rgb(238, 117, 117)",
                 ],
                 data: [
                   data.confirmed.value,
