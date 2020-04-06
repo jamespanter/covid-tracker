@@ -30,6 +30,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   background: linear-gradient(rgba(90, 88, 88, 0.5), rgba(63, 62, 62, 0.5));
 }

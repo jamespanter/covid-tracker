@@ -3,7 +3,7 @@ import styles from "./Chart.module.scss";
 import { Line, Bar } from "react-chartjs-2";
 
 const Chart = (props) => {
-  const { loading, country, loadingJSX } = props;
+  const { loadingJSX, country, toggleLoading } = props;
   const [data, setData] = useState(null);
 
   const fetchData = async (url) => {
@@ -21,9 +21,7 @@ const Chart = (props) => {
       : fetchData("https://covid19.mathdro.id/api/daily");
   }, [country]);
 
-  return loading ? (
-    loadingJSX
-  ) : data && country === "All" ? (
+  return data && country === "All" ? (
     <div className={styles.chart}>
       <div className={styles.lineChart}>
         <Line
@@ -77,7 +75,7 @@ const Chart = (props) => {
       </div>
     </div>
   ) : (
-    loading
+    loadingJSX()
   );
 };
 

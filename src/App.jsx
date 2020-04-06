@@ -42,7 +42,7 @@ const App = () => {
       <p>Last update : {data.lastUpdate}</p>
       <Cards data={data} />
       <Dropdown loading={loading} setCountry={setCountry} />
-      <Chart loading={loading} country={country} loadingJSX={loadingJSX} />
+      <Chart loadingJSX={loadingJSX} country={country} />
     </div>
   ) : (
     loadingJSX()
