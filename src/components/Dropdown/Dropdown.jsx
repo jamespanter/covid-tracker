@@ -16,7 +16,11 @@ const Dropdown = (props) => {
 
   const getDropDownOptions = () => {
     return data.map((country) => {
-      return <option value={country.name}>{country.name}</option>;
+      return (
+        <option value={country.name} key={country.name}>
+          {country.name}
+        </option>
+      );
     });
   };
 

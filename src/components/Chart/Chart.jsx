@@ -26,6 +26,10 @@ const Chart = (props) => {
     <div className={styles.chart}>
       <div className={styles.lineChart}>
         <Line
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+          }}
           data={{
             labels: data.map((day) => day.reportDate),
             datasets: [
@@ -53,6 +57,8 @@ const Chart = (props) => {
           options={{
             legend: { display: false },
             title: { display: true, text: `Current state in ${country}` },
+            responsive: true,
+            maintainAspectRatio: false,
           }}
           data={{
             labels: ["Cases", "Recovered", "Deaths"],

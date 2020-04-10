@@ -2,23 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5%;
 
   .lineChart {
     width: 90%;
-    height: 500px;
+    height: 50vh;
+    min-height: 400px;
   }
 
   .barChart {
     width: 90%;
-    height: 500px;
+    height: 50vh;
+    min-height: 400px;
   }
 }
 
 @media only screen and (min-width: 600px) {
   .chart {
-    display: flex;
-    flex-direction: row;
-
     .lineChart {
       width: 70%;
     }

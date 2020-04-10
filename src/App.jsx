@@ -10,7 +10,7 @@ const App = () => {
   const [country, setCountry] = useState("All");
   const [loading, toggleLoading] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = () => {
     fetch("https://covid19.mathdro.id/api")
       .then((response) => response.json())
       .then((data) => {
