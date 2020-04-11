@@ -8,15 +8,25 @@ const Cards = (props) => {
     <section className={styles.cards}>
       <div className={styles.cases}>
         <h2>Cases</h2>
-        <p>{data.confirmed.value}</p>
+        <p>
+          {data.confirmed.value
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
       </div>
       <div className={styles.recovered}>
         <h2>Recovered</h2>
-        <p>{data.recovered.value}</p>
+        <p>
+          {data.recovered.value
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
       </div>
       <div className={styles.deaths}>
         <h2>Deaths</h2>
-        <p>{data.deaths.value}</p>
+        <p>
+          {data.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
       </div>
     </section>
   );
