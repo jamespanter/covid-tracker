@@ -7,7 +7,6 @@ const Chart = (props) => {
   const [data, setData] = useState(null);
 
   const fetchData = (url) => {
-    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
