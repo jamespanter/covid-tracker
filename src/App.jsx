@@ -29,6 +29,64 @@ const App = () => {
     </div>
   );
 
+  const currentDate = () => {
+    const day = data.lastUpdate.slice(8, 10);
+    const month = data.lastUpdate.slice(5, 7);
+    const year = data.lastUpdate.slice(0, 4);
+    const hours = data.lastUpdate.slice(11, 13);
+    const mins = data.lastUpdate.slice(14, 16);
+    const seconds = data.lastUpdate.slice(17, 19);
+    return `${day} ${getMonthAsString(
+      month
+    )} ${year} at ${hours}:${mins}:${seconds}`;
+  };
+
+  const getMonthAsString = (number) => {
+    let month;
+
+    switch (number) {
+      case "01":
+        month = "January";
+        break;
+      case "02":
+        month = "February";
+        break;
+      case "03":
+        month = "March";
+        break;
+      case "04":
+        month = "April";
+        break;
+      case "05":
+        month = "May";
+        break;
+      case "06":
+        month = "June";
+        break;
+      case "07":
+        month = "July";
+        break;
+      case "08":
+        month = "August";
+        break;
+      case "09":
+        month = "September";
+        break;
+      case "10":
+        month = "October";
+        break;
+      case "11":
+        month = "November";
+        break;
+      case "12":
+        month = "December";
+        break;
+      default:
+        month = number;
+    }
+    return month;
+  };
+
   useEffect(() => {
     toggleLoading(true);
     fetchData();
@@ -39,7 +97,7 @@ const App = () => {
   ) : data ? (
     <div className={styles.app}>
       <h1>COVID-19</h1>
-      <p>Last update : {data.lastUpdate}</p>
+      <p>Last update : {data ? currentDate() : null}</p>
       <Cards data={data} />
       <Dropdown loading={loading} setCountry={setCountry} />
       <Chart loadingJSX={loadingJSX} country={country} />
